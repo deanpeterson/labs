@@ -1,0 +1,16 @@
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: bm-apache-subscription
+  namespace: apache-test
+  labels:
+    cloud: Other
+  annotations:
+    apps.open-cluster-management.io/github-path: kustomize-app/overlays/bm
+    apps.open-cluster-management.io/github-branch: cwilkers
+spec:
+  channel: apache-test/apache-channel
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: bm-clusters
